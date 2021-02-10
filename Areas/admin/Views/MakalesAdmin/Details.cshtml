@@ -1,0 +1,81 @@
+﻿@model IBlog.Models.Makale
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<div style="font-size:1.5rem; padding-left:10px;">
+
+<div class="ml-4">
+
+    <h2>Detaylar</h2>
+
+    <div>
+        <h4>Makale</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Baslik)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Baslik)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Icerik)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Icerik)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OlusturulmaTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OlusturulmaTarihi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GuncellemeTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GuncellemeTarihi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ResimUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResimUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Yazar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Yazar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OkuyucuSayisi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OkuyucuSayisi)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+    <p class="pl-2">
+@Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn btn-secondary pd" })
+@Html.ActionLink("Listeye Geri Dön", "Index", null, new { @class = "btn btn-info" })
+    </p>
+</div>
+

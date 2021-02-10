@@ -1,0 +1,42 @@
+﻿@model List<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Kategori Ad</td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.KategoriAd</td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary text-right " })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger text-right" })
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#nav li').first().addClass('current');
+            $('#nav li.current').next().addClass('current');
+            $('#nav li').first().removeClass('current');
+        });
+    </script>
+}
+

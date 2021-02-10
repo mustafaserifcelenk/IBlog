@@ -1,0 +1,13 @@
+﻿@model YorumEkleViewModel
+
+@using (Html.BeginForm("YorumEkle", "Home", FormMethod.Post, new { id = "frmYorumEkle" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.MakaleId)
+
+    @Html.TextAreaFor(x => x.YorumIcerigi, new { @class = "form-control", rows = 2 })
+    <div class="mt-2"></div>
+    <button class="btn btn-primary">Gönder</button>
+    @Html.ValidationMessageFor(x => x.YorumIcerigi, null, new { @class = "text-danger align-middle" })
+}

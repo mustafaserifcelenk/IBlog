@@ -1,0 +1,29 @@
+﻿@model IBlog.Models.Kategori
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-left:20px; font-size:1.5rem;">
+
+    <h2>Detaylar</h2>
+
+    <div>
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.KategoriAd)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KategoriAd)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Kategori Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn btn-secondary" })
+        @Html.ActionLink("Listeye Geri Dön", "Index", null, new { @class = "btn btn-info" })
+    </p>
+</div>
+

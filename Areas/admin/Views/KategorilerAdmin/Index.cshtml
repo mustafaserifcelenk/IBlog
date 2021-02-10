@@ -1,0 +1,77 @@
+﻿@model IEnumerable<IBlog.Models.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-left:20px;">
+
+    <h2>Kategoriler</h2>
+
+    <p>
+        @Html.ActionLink("Kategori Ekle", "Create", null, new { @class = "btn btn-success" })
+    </p>
+
+    <table class="table table-striped dataTable align-middle p-2" id="dataTable" width="100%" cellspacing="0" role="grid"
+           aria-describedby="dataTable_info" style="width: 100%; font-size:1.5rem;">
+
+        <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 57px;">
+                    Kategori İsmi
+                </th>
+                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                    aria-label="Position: activate to sort column ascending" style="width: 62px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr role="row" class="odd">
+                    <td class="sorting_1" width="85%">@Html.DisplayFor(modelItem => item.KategoriAd)</td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-block w-50  ml-5" })
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-secondary btn-block w-50  ml-5" })
+                        @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-block w-50 ml-5" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width:100%;">
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KategoriAd)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KategoriAd)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-block w-25 ml-5" })
+                        @Html.ActionLink("Detaylar", "Details", new { id = item.Id }, new { @class = "btn btn-secondary btn-block w-25 ml-5" })
+                        @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-block w-25 ml-5" })
+                    </td>
+                </tr>
+            }
+
+        </table>*@
+</div>
+
+@section scripts{
+    <script>
+        //$(document).ready(function () {
+        //    $('#dataTable').DataTable();
+        //});
+        $("#dataTable").dataTable();
+    </script>
+}

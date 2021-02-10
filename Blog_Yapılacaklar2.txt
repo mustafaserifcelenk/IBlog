@@ -1,0 +1,33 @@
+-- Blog
+
+- Tema seçimi ve Layout giydirilmesi 
+	- Anasayfa View tasarımı X
+	- Kategoriler View Tasarımı X
+	- Makaleler View Tasarımı X
+	- Yorumlar Kısmı Tasarımı X
+		
+		
+- Belirtilen Yapılar için Controllerların Yazılması
+	- Anasayfa(Home) Controller CRUD X
+	- Kategoriler Controller CRUD X
+	- Makaleler Controller CRUD X
+	- Yorumlar Controller CRUD X
+
+
+- Admin Area Tasarımı ve Layout Belirlenmesi
+	- Admin Area Anasayfa View tasarımı X 
+	- Admin Area Kategoriler View Tasarımı X
+	- Admin Area Makaleler View Tasarımı X
+	- Admin Area Yorumlar Kısmı Tasarımı X
+	- Datatables.js Entegrasyonu X
+
+
+- Admin Area için Controllerların Yazılması
+	- Admin Area Anasayfa(Home) Controller CRUD X
+	- Admin Area Kategoriler Controller CRUD X
+	- Admin Area Makaleler Controller CRUD X
+	- Admin Area Yorumlar Controller CRUD X
+
+	
+	
+	

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<IBlog.Models.Yorum>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-left:20px;">
+
+    <h2>Yorumlar</h2>
+
+    @*<p>
+            @Html.ActionLink("Kategori Ekle", "Create", null, new { @class = "btn btn-success" })
+        </p>*@
+    <table class="table" style="font-size:1.5rem;" id="dataTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Makale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YorumIcerigi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderenAdi)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Makale.Baslik
+                </td>
+                <td>
+                    @if (item.YorumIcerigi.Length > 25)
+                    {
+                        @item.YorumIcerigi.Substring(0, 25)<span>...</span>
+                    }
+                    else
+                    {
+                        @item.YorumIcerigi
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tarih)
+                </td>
+                <td>
+                    @if (item.GonderenAdi != null)
+                    {
+                        if (item.GonderenAdi.Length > 25)
+                        {
+                            @item.GonderenAdi.Substring(0, 25)<span>...</span>
+                        }
+                        else
+                        {
+                            @item.GonderenAdi
+                        }
+                    }
+                    else
+                    {
+                        @item.GonderenAdi
+                    }
+
+                </td>
+                <td>
+                    @Html.ActionLink("Detaylar", "Detaylar", new { id = item.Id }, new { @class = "btn btn-secondary btn-block w-50 ml-5" })
+                    @Html.ActionLink("Sil", "Sil", new { id = item.Id }, new { @class = "btn btn-danger btn-block w-50 ml-5" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#dataTable').DataTable();
+        });
+    </script>
+}
+
+

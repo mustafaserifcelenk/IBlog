@@ -1,0 +1,55 @@
+﻿@model IBlog.Models.Yorum
+@{
+    ViewBag.Title = "Detaylar";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="font-size:1.5rem; padding-left:10px;">
+
+    <div class="ml-4">
+
+        <h2>Yorum Detayları</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Makale.Baslik)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Makale.Baslik)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.YorumIcerigi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.YorumIcerigi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GonderenAdi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GonderenAdi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tarih)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tarih)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+    <p class="pl-2">
+        @Html.ActionLink("Listeye Geri Dön", "Index", null, new { @class = "btn btn-info" })
+    </p>
+</div>
+

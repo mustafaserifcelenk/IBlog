@@ -1,0 +1,60 @@
+﻿@model List<Makale>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="inner">
+
+    @foreach (var item in Model)
+    {
+
+        <article class="box post post-excerpt">
+            <header>
+                <a style="font-size:3em; margin-top:20px; text-decoration:none;" href="@Url.Action("BlogDetay", new { id = item.Id })">@item.Baslik</a>
+            </header>
+            <div class="info">
+                @*<span class="date"><span class="month">Jul<span>y</span></span> <span class="day">8</span><span class="year">, 2014</span></span>*@
+                <span class="date"><span class="month">@*@item.OlusturulmaTarihi.Value.ToString("MMMM")*@</span> <span class="day">@*@item.OlusturulmaTarihi.Value.ToString("dd")*@</span><span class="year">@*@item.OlusturulmaTarihi.Value.ToString("yyyy")*@</span></span>
+                <ul class="stats">
+                    <li><a href="#" class="icon fa-comment"></a></li>
+                    <li><a id="heart" data-item="@item.Id" href="#" class="icon fa-heart">@item.Like</a></li>
+                    <li><a href="#" class="icon brands fa-twitter">e</a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f">128</a></li>
+                </ul>
+            </div>
+            @if (!string.IsNullOrEmpty(item.ResimUrl))
+            {
+                <a href="#" class="image featured"><img src="~/Resimler/@item.ResimUrl" alt="" /></a>
+            }
+            else
+            {
+                <a href="#" class="image featured">
+                    <img src="~/Resimler/700x400.gif" alt="" />
+                </a>
+            }
+            <p>
+                @item.Icerik
+            </p>
+        </article>
+
+    }
+</div>
+<!-- Pagination -->
+<div class="pagination">
+    <!--<a href="#" class="button previous">Previous Page</a>-->
+    <div class="pages">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <span>&hellip;</span>
+        <a href="#">20</a>
+    </div>
+    <a href="#" class="button next">Next Page</a>
+</div>
+<script>
+    (function () {
+        var d = document.getElementById("heart").getAttribute("data-item");
+        console.log(d)
+    })();
+    
+</script>
